@@ -17,11 +17,6 @@ h2 {
   font-size: 45px;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
 .container {
   margin-top: 50px;
   width: 500px;
@@ -103,4 +98,11 @@ a {
   font-size: 12px;
   text-align: center;
   color: rgb(250, 250, 250);
+}
+
+.footer {
+  color: #41768a;
+  font-size: smaller;
+  text-align: center;
+  padding-left: 30px;
 }
