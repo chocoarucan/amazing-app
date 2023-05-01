@@ -52,7 +52,7 @@ h2 {
   text-transform: capitalize;
 }
 
-.precipitation,
+.wind,
 .humidity {
   font-size: 12px;
   position: relative;
