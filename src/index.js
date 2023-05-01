@@ -43,6 +43,8 @@ function displayWeather(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].main;
 }
 
 function showCity(city) {
@@ -69,6 +71,8 @@ function defaultPage(response) {
   let currentLocation = response.data.name;
   defaultTemp.innerHTML = `${currentTemperature}°C`;
   defaultCity.innerHTML = `${currentLocation}`;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement = response.data.weather[0].description;
 }
 function showPosition(position) {
   let lat = position.coords.latitude;
