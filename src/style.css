@@ -17,6 +17,19 @@ h2 {
   font-size: 45px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
 .container {
   margin-top: 50px;
   width: 500px;

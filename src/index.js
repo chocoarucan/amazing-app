@@ -115,11 +115,25 @@ navigator.geolocation.getCurrentPosition(showPosition);
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = Math.round((celsius * 9) / 5 + 32);
   temperatureElement.innerHTML = `${fahrenheitTemperature}°F`;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#main-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  celsiusBack = Math.round(celsius);
+  temperatureElement.innerHTML = `${celsiusBack}°C`;
 }
 
 let celsius = null;
 
 let fahrenheitLink = document.querySelector("#fah-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#cel-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
