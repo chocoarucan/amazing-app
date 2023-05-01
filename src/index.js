@@ -100,6 +100,8 @@ function defaultPage(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsius = response.data.main.temp;
 }
 function showPosition(position) {
   let lat = position.coords.latitude;
