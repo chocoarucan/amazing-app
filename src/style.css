@@ -122,3 +122,10 @@ h2 {
   text-align: center;
   padding-left: 30px;
 }
+
+.units {
+  font-size: 15px;
+  position: relative;
+  right: -370px;
+  bottom: -120px;
+}

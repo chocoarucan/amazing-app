@@ -45,15 +45,17 @@ function displayWeather(response) {
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
 
-  let iconElement = document.querySelector("#icon");
   let descriptionElement = document.querySelector("#description");
   descriptionElement = response.data.weather[0].description;
 
+  let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsius = response.data.main.temp;
 }
 
 function showCity(city) {
@@ -107,3 +109,17 @@ function showPosition(position) {
   axios.get(apiUrl).then(defaultPage);
 }
 navigator.geolocation.getCurrentPosition(showPosition);
+
+//UNIT CONVERSION
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#main-temp");
+  let fahrenheitTemperature = Math.round((celsius * 9) / 5 + 32);
+  temperatureElement.innerHTML = `${fahrenheitTemperature}°F`;
+}
+
+let celsius = null;
+
+let fahrenheitLink = document.querySelector("#fah-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
