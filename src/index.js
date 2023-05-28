@@ -46,7 +46,7 @@ function displayWeather(response) {
   ).innerHTML = `${response.data.main.humidity}%`;
 
   let descriptionElement = document.querySelector("#description");
-  descriptionElement = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -93,7 +93,7 @@ function defaultPage(response) {
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
 
-  descriptionElement = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 
   iconElement.setAttribute(
     "src",
@@ -111,6 +111,32 @@ function showPosition(position) {
   axios.get(apiUrl).then(defaultPage);
 }
 navigator.geolocation.getCurrentPosition(showPosition);
+//FORECAST
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-3 date1">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${day}</h5>
+                <p class="card-text"><i class="fa-solid fa-sun"></i></p>
+                <p class="card-text">23°</p>
+              </div>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 //UNIT CONVERSION
 
@@ -139,3 +165,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#cel-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+displayForecast();
